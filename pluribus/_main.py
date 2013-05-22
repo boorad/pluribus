@@ -3,7 +3,7 @@ from __future__ import absolute_import
 import argparse
 import sys
 
-from mapr.commands import commands
+from pluribus.commands import commands
 
 def main(argv=None):
     parser = argparse.ArgumentParser()

@@ -1,6 +1,6 @@
-====
-mapr
-====
+========
+pluribus
+========
 
 Having just finished reading the original Google `MapReduce paper`_, I
 obviously felt the need to try to implement such a system in Python.
@@ -20,7 +20,7 @@ Examples
 The canonical word-count example::
 
     # myjob.py
-    from mapr import job
+    from pluribus import job
 
 
     @job.map_
@@ -41,17 +41,17 @@ The canonical word-count example::
 Assuming you're running everything on one host, you can ignore the
 network connection information.
 
-Start a **mapr** master::
+Start a pluribus **master**::
 
-    $ mapr master
+    $ pluribus master
 
-Start a **mapr** worker (or several hundred)::
+Start a pluribus **worker** (or several hundred)::
 
-    $ mapr worker
+    $ pluribus worker
 
 On the master or on another machine that can talk to the master::
 
-    $ mapr job myjob
+    $ pluribus job myjob
     # ... wait
     <results>
 

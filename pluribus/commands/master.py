@@ -1,4 +1,4 @@
-"""Start a mapr master process locally.
+"""Start a pluribus master process locally.
 
 A ``master`` process
 

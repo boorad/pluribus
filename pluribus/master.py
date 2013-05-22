@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from mapr import job
+from pluribus import job
 
 
 class Master(object):

@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mapr',
+    name='pluribus',
     version='0.0.1',
     description='A pure-python highly-distributed MapReduce cluster.',
     long_description=open('README.rst').read(),
     author='James Socol',
     author_email='me@jamessocol.com',
-    url='https://github.com/jsocol/mapr',
+    url='https://github.com/jsocol/pluribus',
     license='Apache v2.0',
     packages=find_packages(),
     include_package_data=True,
@@ -15,7 +15,7 @@ setup(
     zip_safe=False,
     entry_points={
         'console_scripts': [
-            'mapr = mapr._main:main',
+            'pluribus = pluribus._main:main',
         ],
     },
     classifiers=[

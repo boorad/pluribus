@@ -1,7 +1,7 @@
 import marshal
 import types
 
-from mapr import proto
+from pluribus import proto
 
 
 def map_(fn):

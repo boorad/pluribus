@@ -1,4 +1,4 @@
-from mapr.commands import (
+from pluribus.commands import (
     help,
     master,
     worker,

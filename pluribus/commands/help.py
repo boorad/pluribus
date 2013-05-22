@@ -18,17 +18,17 @@ def print_command_help(args):
     if command is None:
         print 'You asked for help in general.'
     else:
-        path = importlib.import_module('mapr.commands').__path__
+        path = importlib.import_module('pluribus.commands').__path__
         try:
             imp.find_module(command, path)
         except ImportError:
             print >> sys.stderr, "I don't know that command."
             sys.exit(1)
 
-        module = importlib.import_module('mapr.commands.%s' % command)
+        module = importlib.import_module('pluribus.commands.%s' % command)
         print module.__doc__
 
         print 'To see command options, run: %(prog)s %(command)s --help\n' % {
-            'prog': 'mapr',
+            'prog': 'pluribus',
             'command': command,
         }
