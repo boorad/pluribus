@@ -1,7 +1,7 @@
 """Send a new job to the pluribus cluster.
 
 A ``job`` is a python file or module with appropriately named or annotated
-objects defining the pluribuseduce job.
+objects defining the mapreduce job.
 
 Jobs MUST define a map operation and a reduce operation. They MAY define
 partition operations, input readers, output writers, or other settings.
