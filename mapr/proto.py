@@ -10,6 +10,10 @@ class Message(object):
     pass
 
 
+class NewWorker(Message):
+    pass
+
+
 class Heartbeat(Message):
     pass
 
