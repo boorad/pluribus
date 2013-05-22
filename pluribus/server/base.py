@@ -35,7 +35,7 @@ class BaseServer(object):
         raise NotImplementedError()
 
     def accept(self):
-        emask = select.POLLIN | select.POLLPRI | select.POLLERR
+        emask = select.EPOLLIN | select.EPOLLPRI | select.EPOLLERR | select.EPOLLHUP
         while not self.stopped:
             try:
                 client, addr = self._sock.accept()
@@ -59,11 +59,11 @@ class BaseServer(object):
     def poll(self):
         failed = {}
         while not self.stopped:
-            events = self._poll.poll()
+            events = self._poll.poll(timeout=1)
 
             for fd, evt in events:
                 client, addr = self._connections[fd]
-                if evt & select.POLLIN or evt & select.POLLPRI:
+                if evt & select.EPOLLIN or evt & select.EPOLLPRI:
                     msg = ''
                     while not self.stopped:
                         try:
@@ -83,7 +83,7 @@ class BaseServer(object):
                                 client.close()
                                 raise
                     self.queue_event(self.handle_message, client, addr, msg)
-                if evt & select.POLLERR:
+                if evt & select.EPOLLERR or evt & select.EPOLLHUP:
                     self.close_client(fd)
 
     def queue_event(self, func, *args, **kwargs):
