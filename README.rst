@@ -14,16 +14,16 @@ Examples
 The canonical word-count example::
 
     # myjob.py
-    import mapr
+    from mapr import job
 
 
-    @mapr.map_
+    @job.map_
     def emit_words(text):
         for word in text.split():
             yield word, 1
 
 
-    @mapr.reduce_
+    @job.reduce_
     def sum_occurences(key, values):
         return sum(values)
 
